@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "build:rust": "node ../crates/zk-verifier/install-bb.js && cargo build --release --workspace --manifest-path ../crates/Cargo.toml && node ../crates/webhook-verifier/copy-native.js && node ../crates/zk-verifier/copy-native.js && node ../crates/stellar-utils/copy-native.js && node ../crates/chunk-processor/copy-native.js && node ../crates/pg-bulk-upsert/copy-native.js && node ../crates/x402-processor/copy-native.js && node ../crates/escrow-state-machine/copy-native.js && node ../crates/soroban-reconciler/copy-native.js",
-    "build": "npm run build:rust && tsc",
-    "dev": "nodemon --exec ts-node src/index.ts",
-    "start": "node dist/index.js",
+    "build:rust": "node init && node ../crates/zk-verifier/install-bb.js && cargo build --release --workspace --manifest-path ../crates/Cargo.toml && node ../crates/webhook-verifier/copy-native.js && node ../crates/zk-verifier/copy-native.js && node ../crates/stellar-utils/copy-native.js && node ../crates/chunk-processor/copy-native.js && node ../crates/pg-bulk-upsert/copy-native.js && node ../crates/x402-processor/copy-native.js && node ../crates/escrow-state-machine/copy-native.js && node ../crates/soroban-reconciler/copy-native.js",
+    "build": "node init && npm run build:rust && tsc",
+    "dev": "node init && nodemon --exec ts-node src/index.ts",
+    "start": "node init && node dist/index.js",
     "type-check": "tsc --noEmit",
     "test": "jest --runInBand",
     "test:watch": "jest --watch"
